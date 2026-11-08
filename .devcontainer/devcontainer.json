@@ -1,3 +1,60 @@
+# ¿Qué son GitHub Codespaces?
+
+Obtenga información sobre qué GitHub Codespaces son.
+
+## Presentación
+
+Un codespace es un ambiente de desarrollo que se hospeda en la nube. Puede personalizar su proyecto para GitHub Codespaces confirmando los archivos de configuración en su repositorio (lo que a menudo se conoce como configuración como código), lo que crea una configuración de codespace coherente para todos los usuarios de su proyecto. Consulta [Introducción a los contenedores dev](/es/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers).
+
+Cada codespace que cree se aloja en GitHub, dentro de un contenedor Docker que se ejecuta en una máquina virtual. Puedes elegir entre una selección de tipos de máquina virtual que tienen desde 2 núcleos, 8 GB de RAM y 32 GB de almacenamiento hasta 32 núcleos, 128 GB de RAM y 128 GB de almacenamiento.
+
+De forma predeterminada, el entorno de desarrollo de los codespaces se crea a partir de una imagen de Ubuntu Linux que incluye una selección de lenguajes y herramientas populares, pero puedes usar una imagen basada en cualquier distribución de Linux y configurarla según tus requisitos específicos. Independientemente de tu sistema operativo local, el codespace se ejecutará en un entorno de Linux. Windows y macOS no son sistemas operativos compatibles con el contenedor de desarrollo remoto.
+
+Puede conectarse a los espacios de código desde el explorador, desde Visual Studio Codeo mediante GitHub CLI. Al conectarte, accedes directamente al contenedor Docker. Solo tiene acceso limitado al host de máquina virtual de Linux externo.
+
+![Diagrama que muestra la relación entre un editor de código y un espacio de código que se ejecuta en una máquina virtual Azure.](/assets/images/help/codespaces/codespaces-diagram.png)
+
+## Usar GitHub Codespaces
+
+Para comenzar a desarrollar utilizando recursos de cómputo basados en la nube, puedes crear un codespace desde una plantilla o cualquier rama o confirmación en un repositorio. Al crear un espacio de código a partir de una plantilla, puede empezar desde una plantilla en blanco o elegir una plantilla adecuada para el trabajo que está realizando.
+
+Para empezar a trabajar con GitHub Codespaces, consulte [Inicio rápido para GitHub Codespaces](/es/codespaces/quickstart). Para más información sobre cómo crear un codespace, consulta [Creación de un codespace para un repositorio](/es/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository) o [Creación de un codespace a partir de una plantilla](/es/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template). Si quieres volver a un codespace que ya has creado, consulta [Apertura de un codespace existente](/es/codespaces/developing-in-a-codespace/opening-an-existing-codespace). Para obtener más información sobre cómo GitHub Codespaces funciona, consulte [Profundización en GitHub Codespaces](/es/codespaces/about-codespaces/deep-dive).
+
+### Uso de codespaces propiedad de tu cuenta personal
+
+Todas las cuentas personales GitHub tienen una cuota mensual de uso gratuito de GitHub Codespaces incluido en el plan Gratis o Pro. Puede empezar a usar GitHub Codespaces en su cuenta personal sin cambiar ninguna configuración ni proporcionar detalles de pago.
+
+Si creas un codespace desde un repositorio propiedad de la organización, el uso del codespace se cobrará a la organización (si la organización está configurada para ello) o a tu cuenta personal.
+
+Puede continuar usando GitHub Codespaces más allá del uso mensual incluido de almacenamiento y computación proporcionando datos de pago y estableciendo un límite de gasto. Consulta [facturación de GitHub Codespaces](/es/billing/concepts/product-billing/github-codespaces).
+
+### Uso de codespaces propiedad de la organización
+
+Los propietarios de organizaciones de los planes GitHub Team y GitHub Enterprise pueden pagar el uso de GitHub Codespaces por parte de sus miembros y colaboradores. Esto se aplica a codespaces creados a partir de repositorios propiedad de la organización. Consulta [Selección de quién posee y paga los codespaces de una organización](/es/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization). Puede establecer un límite de gasto para el uso de GitHub Codespaces en su organización o cuenta empresarial. Consulta [Configuración de presupuestos para controlar el gasto en productos medidos](/es/billing/how-tos/set-up-budgets).
+
+Si el uso de un codespace va a facturarse a una organización o empresa, se muestra cuando se crea el codespace. Consulta [Creación de un codespace para un repositorio](/es/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository). Los codespaces que se facturan a una organización, o a su empresa matriz, son propiedad de la organización y pueden ser eliminados por un propietario de esta. Consulta [Borrar un codespace](/es/codespaces/developing-in-a-codespace/deleting-a-codespace#deleting-codespaces-in-your-organization).
+
+La capacidad de crear codespaces a partir de repositorios que posea la organización depende de varios factores, como la visibilidad del repositorio y la configuración de la organización o su empresa principal. Para más información, consulta [Solucionar problemas de creación y borrado de codespaces](/es/codespaces/troubleshooting/troubleshooting-creation-and-deletion-of-codespaces#no-access-to-create-a-codespace).
+
+### Personalización GitHub Codespaces
+
+Para personalizar los runtimes y las herramientas del codespace, puedes crear una o varias configuraciones de contenedor de desarrollo para el repositorio. Agregar configuraciones de contenedor de desarrollo al repositorio permite definir una elección de diferentes entornos de desarrollo que sean adecuados para el trabajo que harán las personas en el repositorio.
+
+Si crea un espacio de código desde un repositorio sin configuraciones de contenedor de desarrollo, GitHub Codespaces clonará el repositorio en un entorno con la imagen de contenedor de desarrollo predeterminada que incluye muchas herramientas, lenguajes y entornos en tiempo de ejecución. Si creas un codespace a partir de una plantilla, puedes empezar con alguna configuración inicial sobre la imagen predeterminada. Consulta [Introducción a los contenedores dev](/es/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers).
+
+Puedes personalizar aspectos del entorno de codespace mediante un repositorio de [dotfiles](https://dotfiles.github.io/tutorials/) público. Puedes usar dotfiles para establecer alias y preferencias de shell, o para instalar tus preferencias personales de las herramientas que quieras usar. Si usa GitHub Codespaces en el explorador o en Visual Studio Code, puede usar [La sincronización de configuración](https://code.visualstudio.com/docs/editor/settings-sync) para proporcionar al editor de codespace la misma configuración, métodos abreviados de teclado, fragmentos de código y extensiones que ha configurado en la instalación local de Visual Studio Code.
+
+Consulta [Personalizar tu codespace](/es/codespaces/customizing-your-codespace).
+
+## Facturación de Codespaces
+
+Para obtener información sobre los precios, el almacenamiento y el uso de GitHub Codespaces, consulte [facturación de GitHub Codespaces](/es/billing/concepts/product-billing/github-codespaces).
+
+Si tu cuenta no tiene un método de pago válido en el archivo, el uso se bloqueará una vez que uses la cuota.
+
+Si tienes una forma de pago válida, el gasto puede estar limitado por uno o varios presupuestos. Comprueba los presupuestos establecidos para tu cuenta a fin de asegurarte de que son adecuados para tus necesidades de uso. Consulta [Configuración de presupuestos para controlar el gasto en productos medidos](/es/billing/how-tos/set-up-budgets).
+
+Los costes de GitHub Codespaces siempre se facturan mensualmente, incluso si la cuenta se factura anualmente. Para obtener información sobre cómo los propietarios y administradores de facturación de las organizaciones pueden administrar el límite de gasto para GitHub Codespaces una organización, consulte [Configuración de presupuestos para controlar el gasto en productos medidos](/es/billing/how-tos/set-up-budgets).
 {
 	"build": {
 		"dockerfile": "Dockerfile"
@@ -40,3 +97,4 @@
 	},
 	"postStartCommand": "vale sync"
 }
+
